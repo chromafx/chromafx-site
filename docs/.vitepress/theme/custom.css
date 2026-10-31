@@ -1,0 +1,273 @@
+:root {
+  --cf-bg: #0b1020;
+  --cf-bg-elevated: #12182c;
+  --cf-surface: #171e36;
+  --cf-text: #f4f7fb;
+  --cf-muted: #9aa3b5;
+  --cf-cyan: #35e0ff;
+  --cf-violet: #d24cff;
+  --cf-orange: #ff8a2b;
+  --cf-grad: linear-gradient(115deg, #35e0ff 0%, #d24cff 55%, #ff8a2b 100%);
+
+  --vp-font-family-base: 'Outfit', 'Segoe UI', sans-serif;
+  --vp-font-family-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --vp-c-bg: var(--cf-bg);
+  --vp-c-bg-alt: #080c18;
+  --vp-c-bg-elv: var(--cf-bg-elevated);
+  --vp-c-bg-soft: var(--cf-surface);
+
+  --vp-c-text-1: var(--cf-text);
+  --vp-c-text-2: var(--cf-muted);
+  --vp-c-text-3: #6f788c;
+
+  --vp-c-brand-1: var(--cf-cyan);
+  --vp-c-brand-2: #5ee8ff;
+  --vp-c-brand-3: #1ac8e6;
+  --vp-c-brand-soft: rgba(53, 224, 255, 0.14);
+
+  --vp-c-divider: rgba(154, 163, 181, 0.16);
+  --vp-c-gutter: #080c18;
+  --vp-c-border: rgba(154, 163, 181, 0.18);
+
+  --vp-button-brand-bg: var(--cf-cyan);
+  --vp-button-brand-hover-bg: #5ee8ff;
+  --vp-button-brand-text: #0b1020;
+  --vp-button-brand-hover-text: #0b1020;
+  --vp-button-brand-active-text: #0b1020;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: var(--cf-grad);
+  --vp-home-hero-image-background-image: radial-gradient(
+      ellipse at 30% 40%,
+      rgba(53, 224, 255, 0.28),
+      transparent 55%
+    ),
+    radial-gradient(ellipse at 70% 55%, rgba(210, 76, 255, 0.22), transparent 50%),
+    radial-gradient(ellipse at 55% 80%, rgba(255, 138, 43, 0.18), transparent 45%);
+  --vp-home-hero-image-filter: blur(44px);
+
+  --vp-code-color: #e8ecf4;
+  --vp-code-bg: #12182c;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 90% 60% at 10% -10%, rgba(53, 224, 255, 0.1), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 90% 0%, rgba(210, 76, 255, 0.09), transparent 45%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255, 138, 43, 0.06), transparent 40%),
+    var(--cf-bg);
+  background-attachment: fixed;
+}
+
+.VPNavBar .title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.VPNavBarTitle .logo {
+  height: 28px;
+  margin-right: 10px;
+}
+
+/* —— Home hero —— */
+.VPHome {
+  margin-bottom: 0 !important;
+}
+
+.VPHero {
+  padding-top: clamp(4rem, 12vh, 7rem) !important;
+  padding-bottom: clamp(3rem, 8vh, 5rem) !important;
+}
+
+.VPHero .name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 9vw, 5.5rem) !important;
+  letter-spacing: -0.04em;
+  line-height: 1.05 !important;
+}
+
+.VPHero .text {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem) !important;
+  line-height: 1.35 !important;
+  max-width: 18ch;
+  color: var(--cf-text) !important;
+}
+
+.VPHero .tagline {
+  font-size: 1.05rem !important;
+  max-width: 36ch;
+  color: var(--cf-muted) !important;
+  line-height: 1.55 !important;
+}
+
+.VPHero .image-src {
+  max-width: min(320px, 70vw);
+  filter: drop-shadow(0 20px 40px rgba(53, 224, 255, 0.15));
+  animation: cf-float 7s ease-in-out infinite;
+}
+
+@keyframes cf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.VPButton.brand {
+  font-weight: 600;
+  border-radius: 6px !important;
+  box-shadow: 0 0 0 1px rgba(53, 224, 255, 0.25), 0 8px 28px rgba(53, 224, 255, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPButton.brand:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(53, 224, 255, 0.4), 0 12px 32px rgba(53, 224, 255, 0.28);
+}
+
+.VPButton.alt {
+  border-radius: 6px !important;
+  background: transparent !important;
+  border: 1px solid rgba(154, 163, 181, 0.35) !important;
+  color: var(--cf-text) !important;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.VPButton.alt:hover {
+  border-color: rgba(210, 76, 255, 0.55) !important;
+  background: rgba(210, 76, 255, 0.08) !important;
+}
+
+/* Lean feature strip — one job each, no card chrome */
+.VPFeatures {
+  padding: 1.5rem 0 4rem !important;
+}
+
+.VPFeatures .items {
+  gap: 1.25rem !important;
+}
+
+.VPFeatures .item {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .VPFeatures .item {
+    width: calc(100% / 3) !important;
+  }
+}
+
+.VPFeatures .VPFeature {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 1.25rem 0.5rem !important;
+  border-top: 1px solid transparent !important;
+  border-image: var(--cf-grad) 1;
+  border-image-slice: 1;
+  transition: opacity 0.25s ease;
+}
+
+.VPFeatures .VPFeature:hover {
+  opacity: 0.92;
+}
+
+.VPFeatures .title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 650;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.VPFeatures .details {
+  font-size: 0.95rem;
+  color: var(--cf-muted);
+  line-height: 1.55;
+}
+
+/* Docs content */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.vp-doc h1 {
+  background: var(--cf-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.vp-doc a {
+  color: var(--cf-cyan);
+}
+
+.vp-doc code {
+  font-family: var(--vp-font-family-mono);
+}
+
+.VPFooter {
+  border-top: 1px solid rgba(154, 163, 181, 0.12) !important;
+  background: transparent !important;
+}
+
+/* Pixel-grid accent under hero on home only */
+.VPHome::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: min(220px, 40vw);
+  height: min(160px, 28vw);
+  margin: 5rem 4vw 0 0;
+  opacity: 0.22;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#35e0ff 0 0),
+    linear-gradient(#7896ff 0 0),
+    linear-gradient(#d24cff 0 0),
+    linear-gradient(#a06eff 0 0),
+    linear-gradient(#eb6996 0 0),
+    linear-gradient(#ff8a2b 0 0);
+  background-size: 22px 22px, 14px 14px, 10px 10px, 16px 16px, 11px 11px, 7px 7px;
+  background-position: 0 0, 32px 0, 56px 0, 16px 32px, 42px 32px, 62px 32px;
+  background-repeat: no-repeat;
+  animation: cf-pixels 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes cf-pixels {
+  from {
+    opacity: 0.14;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.28;
+    transform: translateY(6px);
+  }
+}
+
+@media (max-width: 960px) {
+  .VPHome::before {
+    display: none;
+  }
+
+  .VPHero .text {
+    max-width: 22ch;
+  }
+}
