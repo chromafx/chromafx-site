@@ -21,4 +21,4 @@ Output is written to `docs/.vitepress/dist`.
 
 GitHub Pages (`.github/workflows/website.yml`) builds this repo on `main` and publishes `docs/.vitepress/dist`. The custom domain is `chromafx.net` (`docs/public/CNAME`).
 
-The library stays in [chromafx/chromafx](https://github.com/chromafx/chromafx). This repo is only the site.
+The library stays in [chromafx/chromafx](https://github.com/chromafx/chromafx). This repo ([chromafx/chromafx-site](https://github.com/chromafx/chromafx-site)) is only the site.
