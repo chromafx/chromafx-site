@@ -63,9 +63,10 @@ Console.Write(KittyGraphics.FromPng(png, columns: 24, rows: 12));
 Use `TerminalImageCapabilities.Detect()` to choose a protocol.
 
 ```bash
+# from the library repo (github.com/chromafx/chromafx)
 dotnet run --project samples/TerminalArt
 ```
 
 ## Performance notes
 
-Hot paths lean on `Span<T>`, `ArrayPool`, and SIMD where it pays off. Native codecs can still win raw pixel throughput; ChromaFx prioritizes **deployability** and allocation-conscious decode → filter → encode loops. Measure with `tests/ChromaFx.Benchmarks` for your workload.
+Hot paths lean on `Span<T>`, `ArrayPool`, and SIMD where it pays off. Native codecs can still win raw pixel throughput; ChromaFx prioritizes **deployability** and allocation-conscious decode → filter → encode loops. Measure with `tests/ChromaFx.Benchmarks` in the [library repo](https://github.com/chromafx/chromafx).
