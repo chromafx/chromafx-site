@@ -19,6 +19,14 @@ Output is written to `docs/.vitepress/dist`.
 
 ## Deploy
 
-GitHub Pages (`.github/workflows/website.yml`) builds this repo on `main` and publishes `docs/.vitepress/dist`. The custom domain is `chromafx.net` (`docs/public/CNAME`).
+Production is [chromafx.net](https://chromafx.net) on Cloudflare Pages.
 
-The library stays in [chromafx/chromafx](https://github.com/chromafx/chromafx). This repo ([chromafx/chromafx-site](https://github.com/chromafx/chromafx-site)) is only the site.
+| Setting | Value |
+|---------|--------|
+| Build command | `npm run build` |
+| Output directory | `docs/.vitepress/dist` |
+| Node | 22 |
+
+Custom domain: `docs/public/CNAME`. A GitHub Pages workflow (`.github/workflows/website.yml`) remains as an alternate path.
+
+The library stays in [chromafx/chromafx](https://github.com/chromafx/chromafx). This repo is only the site.
