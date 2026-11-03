@@ -2,10 +2,20 @@
 
 Install the meta-package and start with `Image.Load` / `Mutate` / `Clone` / `Save`.
 
+::: tip Prerelease
+Current line is **0.5.0-beta.\*** on NuGet. Include prereleases when restoring:
+
+```bash
+dotnet add package ChromaFx --prerelease
+```
+
+API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+:::
+
 ## Install
 
 ```bash
-dotnet add package ChromaFx
+dotnet add package ChromaFx --prerelease
 ```
 
 Requires the **.NET 10** SDK. The meta-package injects common usings via `buildTransitive` props.
@@ -39,5 +49,7 @@ Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you 
 ## Next
 
 - [Packages](./packages) — NuGet layout
-- [Processing](./processing) — Mutate, Clone, filters
+- [Processing](./processing) — Mutate, Clone, Terminal
+- [Filters](./filters) — fluent helpers and catalog
 - [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP and plugins
+- [Migration](./migration) — Structure.Sketching-era API removals

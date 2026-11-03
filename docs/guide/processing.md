@@ -20,6 +20,8 @@ Core ops live on `IImageProcessingContext`. More filters arrive via extensions (
 image.Mutate(ctx => ctx.Apply(myFilter));
 ```
 
+See the [filters catalog](./filters) for the full list.
+
 ## Terminal art
 
 `ChromaFx.Processing.Terminal` renders images for TUIs (album-art panels, previews). The meta-package injects this namespace automatically.
