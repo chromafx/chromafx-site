@@ -40,3 +40,20 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterL
 Drawing via fluent API today: `DrawRectangle` / `DrawEllipse`. Use `Apply(new Line(...))` for lines.
 
 Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/ChromaFx.Processing/Filters) in the library repo.
+
+## PixelArt package
+
+Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `dotnet add package ChromaFx.PixelArt --prerelease` and `using ChromaFx.PixelArt;`:
+
+| Family | Fluent helpers |
+|--------|----------------|
+| EPX | `Scale2x`, `Scale4x`, `Scale8x` |
+| Eagle | `Eagle`, `SuperEagle` |
+| SaI | `Scale2xSaI`, `Super2xSaI` (may blend edge colors) |
+| Rotation | `RotateSprite(degrees)` |
+
+```csharp
+image.Mutate(ctx => ctx.Scale2x());
+image.Mutate(ctx => ctx.Eagle());
+image.Mutate(ctx => ctx.RotateSprite(45));
+```

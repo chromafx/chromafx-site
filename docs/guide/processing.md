@@ -22,6 +22,10 @@ image.Mutate(ctx => ctx.Apply(myFilter));
 
 See the [filters catalog](./filters) for the full list.
 
+## Pixel art
+
+Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Eagle / SaI / `RotateSprite`) — see the [filters guide](./filters#pixelart-package).
+
 ## Terminal art
 
 `ChromaFx.Processing.Terminal` renders images for TUIs (album-art panels, previews). The meta-package injects this namespace automatically.

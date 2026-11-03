@@ -21,6 +21,6 @@ features:
     details: No third-party NuGet deps and no native codec binaries — simpler Docker, Lambda, and multi-arch deploys.
   - title: Explicit pipelines
     details: Mutate and Clone keep side effects obvious. Fluent filters with an Apply escape hatch when you need it.
-  - title: Format-ready
-    details: Typed encoders and a public ImageFormats registry. WebP/AVIF ids are reserved for a future package or your own plugins.
+  - title: Opt-in PixelArt
+    details: Scale2x, Eagle, SaI, and RotateSprite ship in ChromaFx.PixelArt — not pulled in by the meta-package.
 ---
