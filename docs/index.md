@@ -22,5 +22,5 @@ features:
   - title: Explicit pipelines
     details: Mutate and Clone keep side effects obvious. Fluent filters with an Apply escape hatch when you need it.
   - title: Opt-in PixelArt
-    details: Scale2x, Eagle, SaI, and RotateSprite ship in ChromaFx.PixelArt — not pulled in by the meta-package.
+    details: Scale2x / Scale3x, Hq2x–4x, CleanEdge, Eagle, SaI, RotateSprite, and CleanEdgeRotate ship in ChromaFx.PixelArt — not pulled in by the meta-package.
 ---

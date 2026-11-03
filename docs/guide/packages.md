@@ -8,7 +8,7 @@ Current NuGet line is **0.5.0-beta.\*** (prerelease). Prefer `--prerelease` unti
 | **ChromaFx.Core** | Image, color, animation, exceptions | [ChromaFx.Core](https://www.nuget.org/packages/ChromaFx.Core/?includePrerelease=true) |
 | **ChromaFx.IO** | Decode/encode, Load/Save, format registry | [ChromaFx.IO](https://www.nuget.org/packages/ChromaFx.IO/?includePrerelease=true) |
 | **ChromaFx.Processing** | Filters and Mutate/Clone | [ChromaFx.Processing](https://www.nuget.org/packages/ChromaFx.Processing/?includePrerelease=true) |
-| **ChromaFx.PixelArt** | Opt-in Scale2x / Eagle / SaI and `RotateSprite` (not in the meta-package) | [ChromaFx.PixelArt](https://www.nuget.org/packages/ChromaFx.PixelArt/?includePrerelease=true) |
+| **ChromaFx.PixelArt** | Opt-in Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI and `RotateSprite` / `CleanEdgeRotate` (not in the meta-package) | [ChromaFx.PixelArt](https://www.nuget.org/packages/ChromaFx.PixelArt/?includePrerelease=true) |
 
 All packages target **net10.0** and ship under Apache 2.0.
 

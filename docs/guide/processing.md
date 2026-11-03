@@ -24,7 +24,7 @@ See the [filters catalog](./filters) for the full list.
 
 ## Pixel art
 
-Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Eagle / SaI / `RotateSprite`) — see the [filters guide](./filters#pixelart-package).
+Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate`) — see the [filters guide](./filters#pixelart-package).
 
 ## Terminal art
 

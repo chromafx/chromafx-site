@@ -43,7 +43,7 @@ Image.Load("input.png")
 | `Image`, `Color`, `Animation` | `ChromaFx.Core` |
 | `Load` / `Save`, encoders, `ImageFormats` | `ChromaFx.IO` |
 | `Mutate` / `Clone`, filters | `ChromaFx.Processing` |
-| Scale2x / Eagle / SaI / `RotateSprite` | `ChromaFx.PixelArt` (opt-in; [details](./filters#pixelart-package)) |
+| Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate` | `ChromaFx.PixelArt` (opt-in; [details](./filters#pixelart-package)) |
 
 Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you want a smaller graph. Add `ChromaFx.PixelArt` only when you need pixel-art upscaling or rotation.
 
