@@ -49,13 +49,14 @@ Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `
 |--------|----------------|
 | EPX | `Scale2x`, `Scale3x`, `Scale4x`, `Scale8x` |
 | HQX | `Hq2x`, `Hq3x`, `Hq4x` (may blend) |
-| cleanEdge | `CleanEdge(scale)` — edge/line reconstruction (default 4×); `CleanEdgeRotate(degrees)` — sample-through rotation (1× AABB) |
+| cleanEdge | `CleanEdge(scale)` — edge/line reconstruction (default 4×) |
 | Eagle | `Eagle`, `SuperEagle` (SuperEagle may blend) |
 | SaI | `Scale2xSaI`, `Super2xSaI` (may blend) |
-| Rotation | `RotateSprite(degrees)` — RotSprite (AABB canvas; cardinal angles exact; optional `emptyColor`) |
+| Rotation | `RotateSprite(degrees)` — RotSprite (similarity Scale2x → 8×); `CleanEdgeRotate(degrees)` — cleanEdge sample-through. Both use a 1× AABB canvas, exact cardinal remaps, and opaque-black empty fill by default (`emptyColor` optional). |
 
 ```csharp
 image.Mutate(ctx => ctx.Scale2x());
-image.Mutate(ctx => ctx.Eagle());
+image.Mutate(ctx => ctx.CleanEdge(4));
 image.Mutate(ctx => ctx.RotateSprite(45));
+image.Mutate(ctx => ctx.CleanEdgeRotate(45));
 ```
