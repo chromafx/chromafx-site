@@ -48,12 +48,13 @@ Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `
 | Family | Fluent helpers |
 |--------|----------------|
 | EPX | `Scale2x`, `Scale4x`, `Scale8x` |
-| Eagle | `Eagle`, `SuperEagle` |
-| SaI | `Scale2xSaI`, `Super2xSaI` (may blend edge colors) |
-| Rotation | `RotateSprite(degrees)` |
+| Eagle | `Eagle`, `SuperEagle` (SuperEagle may blend) |
+| SaI | `Scale2xSaI`, `Super2xSaI` (may blend) |
+| Rotation | `RotateSprite(degrees)` — optional `emptyColor` or `PixelArt2xAlgorithm` pre-pass (default Scale2x) |
 
 ```csharp
 image.Mutate(ctx => ctx.Scale2x());
 image.Mutate(ctx => ctx.Eagle());
 image.Mutate(ctx => ctx.RotateSprite(45));
+image.Mutate(ctx => ctx.RotateSprite(45, PixelArt2xAlgorithm.Eagle));
 ```
