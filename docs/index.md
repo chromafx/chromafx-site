@@ -15,7 +15,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: View on NuGet
-      link: https://www.nuget.org/packages/ChromaFx/?includePrerelease=true
+      link: https://www.nuget.org/packages/ChromaFx/
 features:
   - title: Fully managed
     details: No third-party NuGet deps and no native codec binaries — simpler Docker, Lambda, and multi-arch deploys.

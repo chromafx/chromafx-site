@@ -43,7 +43,8 @@ Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/
 
 ## PixelArt package
 
-Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `dotnet add package ChromaFx.PixelArt --prerelease` and `using ChromaFx.PixelArt;`:
+Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `dotnet add package ChromaFx.PixelArt` and `using ChromaFx.PixelArt;`:
+
 
 | Family | Fluent helpers |
 |--------|----------------|
