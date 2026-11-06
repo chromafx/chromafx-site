@@ -3,7 +3,7 @@
 Install the meta-package and start with `Image.Load` / `Mutate` / `Clone` / `Save`.
 
 ::: tip 0.x line
-Current line is **0.6.0** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+Published packages are **0.6.1** (tag-only releases). These pages describe the unreleased tree: managed TGA and TIFF, and still WebP, AVIF, and JPEG XL. The 0.6.1 `ChromaFx.Native` package registers probes and throws on decode and encode. API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
 :::
 
 ## Install
@@ -39,13 +39,14 @@ Image.Load("input.png")
 | `Load` / `Save`, encoders, `ImageFormats` | `ChromaFx.IO` |
 | `Mutate` / `Clone`, filters | `ChromaFx.Processing` |
 | Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate` | `ChromaFx.PixelArt` (opt-in; [details](./filters#pixelart-package)) |
+| Still WebP / AVIF / JPEG XL | `ChromaFx.Native` (opt-in; [details](./formats#webp-avif-and-jpeg-xl)) |
 
-Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you want a smaller graph. Add `ChromaFx.PixelArt` only when you need pixel-art upscaling or rotation.
+Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you want a smaller graph. Add `ChromaFx.PixelArt` only when you need pixel-art upscaling or rotation. Add `ChromaFx.Native` when you want still WebP, AVIF, or JPEG XL. Animated WebP/AVIF/JPEG XL are not supported.
 
 ## Next
 
 - [Packages](./packages) — NuGet layout
 - [Processing](./processing) — Mutate, Clone, Terminal
 - [Filters](./filters) — fluent helpers and catalog
-- [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP and plugins
+- [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP/TGA/TIFF and plugins
 - [Migration](./migration) — Structure.Sketching-era API removals

@@ -1,6 +1,6 @@
 # Formats & encoders
 
-Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation).
+Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, and **TIFF** (first page).
 
 ## Loading
 
@@ -32,13 +32,30 @@ Path `Save` / `SaveAsync` pick the **last** registered format that accepts the e
 
 ## Typed encoders
 
-Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEncoder`, `BmpEncoder`, `GifEncoder` (also `IAnimationEncoder`).
+Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEncoder`, `BmpEncoder`, `GifEncoder` (also `IAnimationEncoder`), `TgaEncoder`, `TiffEncoder`.
 
-`FileFormats.WebP` / `Avif` are reserved ids. Built-in typed encode helpers reject them today — register a plugin and save by extension, or wait for a future native package.
+`TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian uncompressed 8-bit RGBA (`.tif`, `.tiff`). Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected.
+
+## WebP, AVIF, and JPEG XL
+
+`FileFormats.WebP` / `Avif` / `JpegXl` are not in the meta-package. Opt-in [`ChromaFx.Native`](./packages) registers them when the package is referenced and decodes and encodes **still** images. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
+
+```csharp
+using ChromaFx.Native.Encoders;
+
+image.Save("out.webp", new WebPEncoder { Quality = 75 });
+image.Save("lossless.webp", new WebPEncoder { Lossless = true });
+image.Save("out.avif", new AvifEncoder { Quality = 60 });
+image.Save("out.jxl", new JxlEncoder { Quality = 75 });
+image.Save("lossless.jxl", new JxlEncoder { Lossless = true });
+var still = Image.Load("photo.avif");
+```
+
+`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `FileFormats.WebP` / `Avif` / `JpegXl` encode. `ImageFormats.TryGetFormat` still returns the first match. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, and win-x64.
 
 ## Plugins
 
-Implement `IImageFormat` / `IAnimationFormat`. `Encode` throws on failure (no bool return). `FileFormats.WebP` / `Avif` are reserved for a future native package or your own plugin.
+Implement `IImageFormat` / `IAnimationFormat`. `Encode` throws on failure (no bool return). Register your own WebP, AVIF, or JPEG XL plugin after `ChromaFx.Native` if you need to override it. The last registration wins.
 
 ## Animation
 

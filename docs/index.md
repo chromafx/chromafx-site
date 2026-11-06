@@ -5,7 +5,7 @@ titleTemplate: .NET image processing
 hero:
   name: ChromaFx
   text: Image processing without native codec DLLs.
-  tagline: Pure managed C# on .NET 10 — BMP, PNG, JPEG, GIF. Span-friendly, allocation-conscious, deploy anywhere.
+  tagline: Pure managed C# on .NET 10 — BMP, PNG, JPEG, GIF, TGA, TIFF. Published NuGet is 0.6.1; TGA, TIFF, and still native codecs ship on the next tag.
   image:
     src: /logo.svg
     alt: ChromaFx logomark
@@ -23,4 +23,6 @@ features:
     details: Mutate and Clone keep side effects obvious. Fluent filters with an Apply escape hatch when you need it.
   - title: Opt-in PixelArt
     details: Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI and RotateSprite / CleanEdgeRotate ship in ChromaFx.PixelArt — not pulled in by the meta-package.
+  - title: Opt-in Native codecs
+    details: ChromaFx.Native adds still WebP, AVIF, and JPEG XL. Animation stays on GIF, and the meta-package stays free of native binaries.
 ---

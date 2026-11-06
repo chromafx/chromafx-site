@@ -1,6 +1,6 @@
 # Packages
 
-Current NuGet line is **0.6.0** (published from version tags only). SemVer 0.x may still change before 1.0.
+Published NuGet packages are **0.6.1** (tag-only). SemVer 0.x may still change before 1.0. TGA, TIFF, and working still WebP, AVIF, and JPEG XL are in the unreleased tree; 0.6.1 `ChromaFx.Native` throws on decode and encode.
 
 | Package | Role | NuGet |
 |---------|------|-------|
@@ -9,6 +9,7 @@ Current NuGet line is **0.6.0** (published from version tags only). SemVer 0.x m
 | **ChromaFx.IO** | Decode/encode, Load/Save, format registry | [ChromaFx.IO](https://www.nuget.org/packages/ChromaFx.IO/) |
 | **ChromaFx.Processing** | Filters and Mutate/Clone | [ChromaFx.Processing](https://www.nuget.org/packages/ChromaFx.Processing/) |
 | **ChromaFx.PixelArt** | Opt-in Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI and `RotateSprite` / `CleanEdgeRotate` (not in the meta-package) | [ChromaFx.PixelArt](https://www.nuget.org/packages/ChromaFx.PixelArt/) |
+| **ChromaFx.Native** | Opt-in still WebP, AVIF, and JPEG XL (not in the meta-package; no animation) | [ChromaFx.Native](https://www.nuget.org/packages/ChromaFx.Native/) |
 
 All packages target **net10.0** and ship under Apache 2.0.
 
@@ -22,6 +23,9 @@ dotnet add package ChromaFx.Processing
 
 # pixel-art upscaling / rotation (opt-in; not included in ChromaFx)
 dotnet add package ChromaFx.PixelArt
+
+# still WebP / AVIF / JPEG XL (opt-in; not included in ChromaFx)
+dotnet add package ChromaFx.Native
 ```
 
 ## Next
