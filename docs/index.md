@@ -5,7 +5,7 @@ titleTemplate: .NET image processing
 hero:
   name: ChromaFx
   text: Image processing without native codec DLLs.
-  tagline: Pure managed C# on .NET 10 — BMP, PNG, JPEG, GIF, TGA, TIFF. Published NuGet is 0.6.1; TGA, TIFF, and still native codecs ship on the next tag.
+  tagline: Pure managed C# on .NET 10 — BMP, PNG, JPEG, GIF, TGA, TIFF. Span-friendly, allocation-conscious, deploy anywhere.
   image:
     src: /logo.svg
     alt: ChromaFx logomark

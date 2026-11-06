@@ -1,6 +1,6 @@
 # Packages
 
-Published NuGet packages are **0.6.1** (tag-only). SemVer 0.x may still change before 1.0. TGA, TIFF, and working still WebP, AVIF, and JPEG XL are in the unreleased tree; 0.6.1 `ChromaFx.Native` throws on decode and encode.
+Current NuGet line is **0.6.2** (published from version tags only). SemVer 0.x may still change before 1.0.
 
 | Package | Role | NuGet |
 |---------|------|-------|

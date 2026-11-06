@@ -3,7 +3,7 @@
 Install the meta-package and start with `Image.Load` / `Mutate` / `Clone` / `Save`.
 
 ::: tip 0.x line
-Published packages are **0.6.1** (tag-only releases). These pages describe the unreleased tree: managed TGA and TIFF, and still WebP, AVIF, and JPEG XL. The 0.6.1 `ChromaFx.Native` package registers probes and throws on decode and encode. API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+Current line is **0.6.2** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
 :::
 
 ## Install

@@ -28,7 +28,7 @@ var bytes = image.ToByteArray(FileFormats.Png);
 var b64 = image.ToBase64String(FileFormats.Png);
 ```
 
-Path `Save` / `SaveAsync` pick the **last** registered format that accepts the extension (plugins can override built-ins). Look up by id with `ImageFormats.TryGetFormat` (returns the **first** match).
+Path `Save` / `SaveAsync` pick the **last** registered format that accepts the extension (plugins can override built-ins). `Save(stream, FileFormats.Png)` does the same by id: the last registration whose `ImageFormatKey` matches (ordinal-ignore-case) supplies `CreateEncoder`. `ImageFormats.TryGetFormat` still returns the **first** match.
 
 ## Typed encoders
 
@@ -38,24 +38,27 @@ Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEn
 
 ## WebP, AVIF, and JPEG XL
 
-`FileFormats.WebP` / `Avif` / `JpegXl` are not in the meta-package. Opt-in [`ChromaFx.Native`](./packages) registers them when the package is referenced and decodes and encodes **still** images. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
+Opt-in [`ChromaFx.Native`](./packages) registers still WebP, AVIF, and JPEG XL when the package is referenced. Their ids are `NativeFormats.WebP`, `Avif`, and `JpegXl` (`webp`, `avif`, `jxl`), not members of `FileFormats`. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
 
 ```csharp
+using ChromaFx.Native;
 using ChromaFx.Native.Encoders;
 
 image.Save("out.webp", new WebPEncoder { Quality = 75 });
+var webp = image.ToByteArray(NativeFormats.WebP);
 image.Save("lossless.webp", new WebPEncoder { Lossless = true });
 image.Save("out.avif", new AvifEncoder { Quality = 60 });
 image.Save("out.jxl", new JxlEncoder { Quality = 75 });
+var jxl = image.ToByteArray(NativeFormats.JpegXl);
 image.Save("lossless.jxl", new JxlEncoder { Lossless = true });
 var still = Image.Load("photo.avif");
 ```
 
-`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `FileFormats.WebP` / `Avif` / `JpegXl` encode. `ImageFormats.TryGetFormat` still returns the first match. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, and win-x64.
+`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `NativeFormats.WebP` / `Avif` / `JpegXl`. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, and win-x64.
 
 ## Plugins
 
-Implement `IImageFormat` / `IAnimationFormat`. `Encode` throws on failure (no bool return). Register your own WebP, AVIF, or JPEG XL plugin after `ChromaFx.Native` if you need to override it. The last registration wins.
+Implement `IImageFormat` / `IAnimationFormat` and give it an `ImageFormatKey`. `Encode` throws on failure (no bool return). `CreateEncoder` defaults to calling `Encode`; override it to return a typed encoder. A plugin can use `new ImageFormatKey("qoi")` without a change to `ChromaFx.IO`. Register your own WebP, AVIF, or JPEG XL plugin after `ChromaFx.Native` if you need to override it. The last registration wins for encode.
 
 ## Animation
 
