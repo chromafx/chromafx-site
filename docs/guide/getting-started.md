@@ -48,5 +48,5 @@ Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you 
 - [Packages](./packages) — NuGet layout
 - [Processing](./processing) — Mutate, Clone, Terminal
 - [Filters](./filters) — fluent helpers and catalog
-- [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP/TGA/TIFF and plugins
+- [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP/TGA/TIFF/ICO and plugins
 - [Migration](./migration) — Structure.Sketching-era API removals

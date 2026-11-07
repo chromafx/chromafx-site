@@ -1,6 +1,10 @@
 # Formats & encoders
 
-Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, and **TIFF** (first page).
+Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, **TIFF** (first page), and **ICO**.
+
+::: tip Next tag
+NuGet **0.6.2** has TGA, TIFF, and the native still codecs. ICO and EXIF orientation are on master and ship on the next tag.
+:::
 
 ## Loading
 
@@ -32,9 +36,11 @@ Path `Save` / `SaveAsync` pick the **last** registered format that accepts the e
 
 ## Typed encoders
 
-Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEncoder`, `BmpEncoder`, `GifEncoder` (also `IAnimationEncoder`), `TgaEncoder`, `TiffEncoder`.
+Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEncoder`, `BmpEncoder`, `GifEncoder` (also `IAnimationEncoder`), `TgaEncoder`, `TiffEncoder`, `IcoEncoder`.
 
-`TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian uncompressed 8-bit RGBA (`.tif`, `.tiff`). Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected.
+`TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian uncompressed 8-bit RGBA (`.tif`, `.tiff`). Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected. `IcoEncoder` writes one PNG image, at most 256×256 (`.ico`). Decode uses the largest directory entry: a PNG payload, or an uncompressed 1/4/8/24/32-bit BMP plus its AND mask.
+
+JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 into the pixels, so a phone photo loads upright. The encoder does not write that tag back. AVIF and JPEG XL are unchanged.
 
 ## WebP, AVIF, and JPEG XL
 
