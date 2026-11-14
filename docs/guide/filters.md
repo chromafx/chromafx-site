@@ -75,8 +75,11 @@ Opt-in [`ChromaFx.Retro`](./packages) is **not** in the meta-package. After `dot
 | Bad web scale (NN down→up) | `BadWebScale(factor?, webSafe?, dither?, strength?)` |
 | Soft bevel (lighten/darken edges) | `Bevel(depth?, style?, expandCanvas?, strength?)` |
 | Mode resolution snap | `RetroMode(width?, height?)` (default 320×200, nearest-neighbor) |
+| Rotated circular-dot halftone | `Halftone(cellSize?, angleDegrees?, strength?)` |
+| Purple fringe / CA look-alike | `ChromaticAberration(amount?, strength?)` |
+| Digicam flash glare + cross streak | `CcdBloom(threshold?, radius?, strength?)` |
 
-Alpha is preserved on palette snaps. Optional ordered dither: Core `OrderedDitherMethod.None` (default), `Bayer4x4`, `Bayer8x8`; `strength` ~0.3–0.6 is typical (Retro bias scale ~±127.5 at strength 1). Adaptive `Quantize` uses Processing `DitherMethod` (adds Floyd–Steinberg) with a milder Bayer scale (~±32). More digicam / UI looks are planned.
+Alpha is preserved on palette snaps. Optional ordered dither: Core `OrderedDitherMethod.None` (default), `Bayer4x4`, `Bayer8x8`; `strength` ~0.3–0.6 is typical (Retro bias scale ~±127.5 at strength 1). Adaptive `Quantize` uses Processing `DitherMethod` (adds Floyd–Steinberg) with a milder Bayer scale (~±32). Lens flare / chrome / plastic wrap / JPEG blocks still planned.
 
 ```csharp
 using ChromaFx.Core.Quantization;
@@ -87,5 +90,7 @@ image.Mutate(ctx => ctx.WebSafeQuantize(OrderedDitherMethod.Bayer4x4, 0.4f));
 image.Mutate(ctx => ctx.CgaQuantize());
 image.Mutate(ctx => ctx.BadWebScale(0.25f, webSafe: true));
 image.Mutate(ctx => ctx.RetroMode(320, 200).Bevel());
+image.Mutate(ctx => ctx.Halftone(6, 45f));
+image.Mutate(ctx => ctx.ChromaticAberration(3f).CcdBloom());
 image.Mutate(ctx => ctx.Quantize(16, DitherMethod.Bayer4x4));
 ```
