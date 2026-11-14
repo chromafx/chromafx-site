@@ -28,7 +28,7 @@ Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Scale3x / Hq2x–4x / CleanE
 
 ## Retro
 
-Opt-in [`ChromaFx.Retro`](./packages) (`WebSafeQuantize`, `CgaQuantize`, `EgaQuantize`, `VgaQuantize`) — see the [filters guide](./filters#retro-package).
+Adaptive palette: `Quantize(maxColors, dither?)` (shared Core octree; `DitherMethod` Bayer / Floyd–Steinberg). Fixed retro palettes: opt-in [`ChromaFx.Retro`](./packages) (`WebSafeQuantize`, `CgaQuantize`, … with Core `OrderedDitherMethod`) — see the [filters guide](./filters#retro-package).
 
 ## Terminal art
 
@@ -65,7 +65,7 @@ For frequent redraws, reuse a `StringBuilder` with `AppendAsciiArt` / `AppendAns
 Inline images (Kitty / iTerm2):
 
 ```csharp
-var png = image.ToByteArray(FileFormats.Png);
+var png = image.ToByteArray(ManagedFormats.Png);
 Console.Write(KittyGraphics.FromPng(png, columns: 24, rows: 12));
 // or ITerm2InlineImage.FromPng(png, ...)
 ```

@@ -30,6 +30,7 @@ Output: `docs/.vitepress/dist` (Cloudflare Pages build output directory).
 4. Do not add GitHub Pages workflows or a `CNAME` file — hosting is Cloudflare-only.
 5. Describe what is on NuGet now. The current version line is repeated in `guide/getting-started.md`, `guide/packages.md`, and `guide/formats.md`; keep them in sync with the library `CHANGELOG.md`. Features only on library `master` say they ship on the next tag.
 6. New guide pages need a `sidebar` entry in `docs/.vitepress/config.ts`.
+7. Dither APIs: Processing adaptive quantize uses `DitherMethod`; Retro fixed palettes use Core `OrderedDitherMethod`. Do not document the removed `QuantizeDitherMethod` / `RetroDitherMethod` names.
 
 ## Where to look
 

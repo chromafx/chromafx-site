@@ -28,23 +28,26 @@ image.Save("out.jpg", new JpegEncoder { Quality = 85 });
 image.Save("out.png"); // extension → registered format
 await image.SaveAsync("out.png"); // sync encode, async write
 
-var bytes = image.ToByteArray(FileFormats.Png);
-var b64 = image.ToBase64String(FileFormats.Png);
+// ManagedFormats holds ImageFormatKey ids (bmp/png/jpeg/gif/tga/tiff/ico); registry is ImageFormats.
+var bytes = image.ToByteArray(ManagedFormats.Png);
+var b64 = image.ToBase64String(ManagedFormats.Png);
 ```
 
-Path `Save` / `SaveAsync` pick the **last** registered format that accepts the extension (plugins can override built-ins). `Save(stream, FileFormats.Png)` does the same by id: the last registration whose `ImageFormatKey` matches (ordinal-ignore-case) supplies `CreateEncoder`. `ImageFormats.TryGetFormat` still returns the **first** match.
+Path `Save` / `SaveAsync` pick the **last** registered format that accepts the extension (plugins can override built-ins). `Save(stream, ManagedFormats.Png)` does the same by id: the last registration whose `ImageFormatKey` matches (ordinal-ignore-case) supplies `CreateEncoder`. `ImageFormats.TryGetFormat` still returns the **first** match.
 
 ## Typed encoders
 
 Encoders live under `ChromaFx.IO.Encoders` — `JpegEncoder` (`Quality`), `PngEncoder`, `BmpEncoder`, `GifEncoder` (also `IAnimationEncoder`), `TgaEncoder`, `TiffEncoder`, `IcoEncoder`.
 
-`TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian uncompressed 8-bit RGBA (`.tif`, `.tiff`). Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected. `IcoEncoder` writes one PNG image, at most 256×256 (`.ico`). Decode uses the largest directory entry: a PNG payload, or an uncompressed 1/4/8/24/32-bit BMP plus its AND mask.
+GIF still/animation encode builds its palette with the shared Core `Octree` (same algorithm as Processing `Quantize`). Transparent-index plumbing stays GIF-specific in IO.
+
+`TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian 8-bit RGBA (`.tif`, `.tiff`); set `Compression` to `TiffCompression.None` (default) or `Deflate`. Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected. `IcoEncoder` writes PNG image(s), each at most 256×256 (`.ico`); use `Encode(stream, images)` for multi-size icons. Decode uses the largest directory entry: a PNG payload, or an uncompressed 1/4/8/24/32-bit BMP plus its AND mask.
 
 JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 into the pixels, so a phone photo loads upright. The encoder does not write that tag back. AVIF and JPEG XL are unchanged.
 
 ## WebP, AVIF, and JPEG XL
 
-Opt-in [`ChromaFx.Native`](./packages) registers still WebP, AVIF, and JPEG XL when the package is referenced. Their ids are `NativeFormats.WebP`, `Avif`, and `JpegXl` (`webp`, `avif`, `jxl`), not members of `FileFormats`. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
+Opt-in [`ChromaFx.Native`](./packages) registers still WebP, AVIF, and JPEG XL when the package is referenced. Their ids are `NativeFormats.WebP`, `Avif`, and `JpegXl` (`webp`, `avif`, `jxl`), not members of `ManagedFormats`. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
 
 ```csharp
 using ChromaFx.Native;
@@ -60,7 +63,7 @@ image.Save("lossless.jxl", new JxlEncoder { Lossless = true });
 var still = Image.Load("photo.avif");
 ```
 
-`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `NativeFormats.WebP` / `Avif` / `JpegXl`. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, and win-x64.
+`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `NativeFormats.WebP` / `Avif` / `JpegXl`. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, win-x64, and win-arm64.
 
 ## Plugins
 

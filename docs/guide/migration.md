@@ -13,7 +13,13 @@ ChromaFx removed several Structure.Sketching-era APIs. Prefer `Mutate` / `Clone`
 | `LoadAnimation(path)` | `Animation.Load(path)` |
 | `FormatManager` / `Manager` | `ImageFormats.Register` |
 | `IFormat` | `IImageFormat` |
-| `FileFormats` enum, including `WebP` / `Avif` / `JpegXl` | `ImageFormatKey`. Managed ids stay on `FileFormats`. Native ids are `NativeFormats` |
+| `ManagedFormats` enum, including `WebP` / `Avif` / `JpegXl` | `ImageFormatKey`. Managed ids stay on `ManagedFormats`. Native ids are `NativeFormats` |
+| `FileFormats` (format id holder) | `ManagedFormats` (same members; registry remains `ImageFormats`) |
+| `ChromaFx.Processing.Filters.Interfaces.IFilter` | `ChromaFx.Processing.Filters.IFilter` |
+| `ResamplingFiltersAvailable` | `ResamplingFilter` in `ChromaFx.Processing.Filters.Resampling` |
+| `FilterList.Filters[…]` | `ResamplingKernels.Create(…)` |
+| `ChromaFx.Core.ExtensionMethods.Extensions` | `ChromaFx.Core.FloatExtensions` |
+| `ChromaFx.Core.Colors.ColorSpaces.*` | `ChromaFx.Core.Colors.*` |
 | Public format types as the only API | Prefer `ImageFormats` / typed encoders (`BmpFormat` etc. remain public for advanced use) |
 | `Temperature` | `KelvinTint` (same Helland math; illuminant tint, not white balance). Pair with `Tint` for green↔magenta. Use `WhiteBalance` / `AutoWhiteBalance` for photographic correction. |
 

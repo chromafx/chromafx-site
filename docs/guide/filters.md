@@ -1,6 +1,6 @@
 # Filters
 
-Most filters implement `IFilter` and run through `Mutate` / `Clone`. Prefer fluent helpers when they exist; otherwise `Apply(new SomeFilter(...))`.
+Most filters implement `IFilter` (`ChromaFx.Processing.Filters`) and run through `Mutate` / `Clone`. Prefer fluent helpers when they exist; otherwise `Apply(new SomeFilter(...))`. Resize kernels take `ResamplingFilter` (`…Filters.Resampling`).
 
 ## Fluent helpers
 
@@ -8,7 +8,7 @@ On `IImageProcessingContext`:
 
 `Apply`, `Resize`, `Rotate`, `Crop`, `Flip`, `Invert`, `Brightness`, `Contrast`, `Gamma`, `Greyscale`, `GaussianBlur`, `Sharpen`, `Threshold`, `DrawRectangle`, `DrawEllipse`
 
-Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `Noise`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`, `AdaptiveEqualize`, `Logarithm`, `Alpha`, `KelvinTint`, `Tint`, `WhiteBalance`, `AutoWhiteBalance`, `Kodachrome`, `Polaroid`, `Lomograph`, `Median`, `Kuwahara`, `SnnBlur`, `Unsharp`, `Posterize`, `Solarize`, `Jitter`, `Glow`, `Vignette`, `Blend`, `AdaptiveThreshold`, `Canny`, `DrawLine`, `Skew`, `Translate`, `ResizeCanvas`
+Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `MorphOpen`, `MorphClose`, `Noise`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`, `AdaptiveEqualize`, `Logarithm`, `Levels`, `Alpha`, `KelvinTint`, `Tint`, `WhiteBalance`, `AutoWhiteBalance`, `Kodachrome`, `Polaroid`, `Lomograph`, `Median`, `Kuwahara`, `SnnBlur`, `Unsharp`, `Posterize`, `Solarize`, `Jitter`, `Glow`, `Vignette`, `Blend` (optional `BlendMode`), `AdaptiveThreshold`, `Canny`, `EdgeDetect`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint`, `Quantize`, `DrawLine`, `Skew`, `Translate`, `ResizeCanvas`
 
 ```csharp
 image.Mutate(ctx => ctx
@@ -19,7 +19,7 @@ image.Mutate(ctx => ctx
 
 ## Catalog
 
-Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterList`, …) are omitted.
+Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `ResamplingKernels`, …) are omitted.
 
 | Category | Filters |
 |----------|---------|
@@ -28,16 +28,17 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterL
 | Color | `Brightness`, `Contrast`, `Gamma`, `Hue`, `Saturation`, `KelvinTint` (Helland illuminant tint; not WB), `Tint` (green↔magenta), `WhiteBalance`, `AutoWhiteBalance` (GrayWorld / WhitePatch), `Alpha`, `BlackWhite`, `Greyscale601`, `Greyscale709`, channel filters, `SepiaTone`, `Kodachrome`, `Lomograph`, `Polaroid` |
 | Convolution | `BoxBlur`, `Sharpen`, `SharpenLess`, `Emboss`, `SobelEmboss`, `Prewitt`, `Scharr`, `Kirsch`, `Kayyali`, `Robinson`, `RobertsCross`, `LaplaceEdgeDetection`, `LaplacianOfGaussianEdgeDetector` |
 | Drawing | `Line`, `Rectangle`, `Ellipse` |
-| Effects | `Invert`, `Posterize`, `Solarize`, `Pixellate`, `Noise`, `Jitter`, `Replace`, `SinWave`, `Pointillism`, `Turbulence` |
-| Morphology | `Dilate`, `Constrict` (fluent `Erode`) |
-| Normalization | `Equalize`, `AdaptiveEqualize`, `StretchContrast`, `Logarithm`, `Gamma` |
-| Overlays | `Blend`, `Glow`, `Vignette` |
-| Pipelines | `GaussianBlur`, `CannyEdgeDetection`, `BumpMap`, `NormalMap`, `Polaroid`, `Lomograph` |
+| Effects | `Invert`, `Posterize`, `Solarize`, `Pixellate`, `Noise`, `Jitter`, `Replace`, `SinWave`, `Pointillism`, `Turbulence`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint` |
+| Morphology | `Dilate`, `Constrict` (fluent `Erode`), `MorphOpen`, `MorphClose` |
+| Normalization | `Equalize`, `AdaptiveEqualize`, `StretchContrast`, `Logarithm`, `Gamma`, `Levels` |
+| Overlays | `Blend` (+ `BlendMode`), `Glow`, `Vignette` |
+| Pipelines | `GaussianBlur`, `CannyEdgeDetection`, `EdgeDetect`, `BumpMap`, `NormalMap`, `Polaroid`, `Lomograph` |
+| Quantize | `Quantize` (+ `DitherMethod`: None / Bayer4x4 / Bayer8x8 / FloydSteinberg) |
 | Resampling | `Resize`, `ResizeCanvas`, `Crop`, `Flip`, `Rotate`, `Scale`, `Skew`, `Translate`, `AffineTransformation` |
 | Sharpening | `Unsharp` |
 | Smoothing | `Median`, `Kuwahara`, `SNNBlur` |
 
-Drawing via fluent API today: `DrawRectangle` / `DrawEllipse` / `DrawLine`.
+Drawing via fluent API today: `DrawRectangle` / `DrawEllipse` / `DrawLine` / `DrawPolygon` / `DrawPolyline` / `FloodFill`.
 
 Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/ChromaFx.Processing/Filters) in the library repo. Visual samples: [filter gallery](./gallery).
 
@@ -67,14 +68,24 @@ Opt-in [`ChromaFx.Retro`](./packages) is **not** in the meta-package. After `dot
 
 | Filter | Fluent helper |
 |--------|----------------|
-| Netscape 6×6×6 | `WebSafeQuantize()` |
-| CGA Mode 4 / RGBI / mono | `CgaQuantize(mode)` |
-| EGA 64-color `00/55/AA/FF` approx | `EgaQuantize()` |
-| VGA 6-bit DAC levels | `VgaQuantize()` |
+| Netscape 6×6×6 | `WebSafeQuantize(dither?, strength?)` |
+| CGA Mode 4 / RGBI / mono | `CgaQuantize(mode, dither?, strength?)` |
+| EGA 64-color `00/55/AA/FF` approx | `EgaQuantize(dither?, strength?)` |
+| VGA 6-bit DAC levels | `VgaQuantize(dither?, strength?)` |
+| Bad web scale (NN down→up) | `BadWebScale(factor?, webSafe?, dither?, strength?)` |
+| Soft bevel (lighten/darken edges) | `Bevel(depth?, style?, expandCanvas?, strength?)` |
+| Mode resolution snap | `RetroMode(width?, height?)` (default 320×200, nearest-neighbor) |
 
-Alpha is preserved. More retro filters are planned (dither, Win9x bevel, digicam looks).
+Alpha is preserved on palette snaps. Optional ordered dither: Core `OrderedDitherMethod.None` (default), `Bayer4x4`, `Bayer8x8`; `strength` ~0.3–0.6 is typical (Retro bias scale ~±127.5 at strength 1). Adaptive `Quantize` uses Processing `DitherMethod` (adds Floyd–Steinberg) with a milder Bayer scale (~±32). More digicam / UI looks are planned.
 
 ```csharp
+using ChromaFx.Core.Quantization;
+using ChromaFx.Processing.Filters;
+
 image.Mutate(ctx => ctx.WebSafeQuantize());
+image.Mutate(ctx => ctx.WebSafeQuantize(OrderedDitherMethod.Bayer4x4, 0.4f));
 image.Mutate(ctx => ctx.CgaQuantize());
+image.Mutate(ctx => ctx.BadWebScale(0.25f, webSafe: true));
+image.Mutate(ctx => ctx.RetroMode(320, 200).Bevel());
+image.Mutate(ctx => ctx.Quantize(16, DitherMethod.Bayer4x4));
 ```
