@@ -37,14 +37,13 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterL
 | Sharpening | `Unsharp` |
 | Smoothing | `Median`, `Kuwahara`, `SNNBlur` |
 
-Drawing via fluent API today: `DrawRectangle` / `DrawEllipse`. Use `Apply(new Line(...))` for lines.
+Drawing via fluent API today: `DrawRectangle` / `DrawEllipse` / `DrawLine`.
 
 Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/ChromaFx.Processing/Filters) in the library repo. Visual samples: [filter gallery](./gallery).
 
 ## PixelArt package
 
 Opt-in [`ChromaFx.PixelArt`](./packages) is **not** in the meta-package. After `dotnet add package ChromaFx.PixelArt` and `using ChromaFx.PixelArt;`:
-
 
 | Family | Fluent helpers |
 |--------|----------------|
@@ -60,4 +59,22 @@ image.Mutate(ctx => ctx.Scale2x());
 image.Mutate(ctx => ctx.CleanEdge(4));
 image.Mutate(ctx => ctx.RotateSprite(45));
 image.Mutate(ctx => ctx.CleanEdgeRotate(45));
+```
+
+## Retro package
+
+Opt-in [`ChromaFx.Retro`](./packages) is **not** in the meta-package. After `dotnet add package ChromaFx.Retro` and `using ChromaFx.Retro;`:
+
+| Filter | Fluent helper |
+|--------|----------------|
+| Netscape 6×6×6 | `WebSafeQuantize()` |
+| CGA Mode 4 / RGBI / mono | `CgaQuantize(mode)` |
+| EGA 64-color `00/55/AA/FF` approx | `EgaQuantize()` |
+| VGA 6-bit DAC levels | `VgaQuantize()` |
+
+Alpha is preserved. More retro filters are planned (dither, Win9x bevel, digicam looks).
+
+```csharp
+image.Mutate(ctx => ctx.WebSafeQuantize());
+image.Mutate(ctx => ctx.CgaQuantize());
 ```

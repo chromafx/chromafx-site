@@ -39,9 +39,10 @@ Image.Load("input.png")
 | `Load` / `Save`, encoders, `ImageFormats` | `ChromaFx.IO` |
 | `Mutate` / `Clone`, filters | `ChromaFx.Processing` |
 | Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate` | `ChromaFx.PixelArt` (opt-in; [details](./filters#pixelart-package)) |
+| Web-safe / CGA / EGA / VGA DAC quantize | `ChromaFx.Retro` (opt-in; [details](./filters#retro-package)) |
 | Still WebP / AVIF / JPEG XL | `ChromaFx.Native` (opt-in; [details](./formats#webp-avif-and-jpeg-xl)) |
 
-Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you want a smaller graph. Add `ChromaFx.PixelArt` only when you need pixel-art upscaling or rotation. Add `ChromaFx.Native` when you want still WebP, AVIF, or JPEG XL. Animated WebP/AVIF/JPEG XL are not supported.
+Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you want a smaller graph. Add `ChromaFx.PixelArt` for pixel-art upscaling or rotation, `ChromaFx.Retro` for retro palettes, and `ChromaFx.Native` for still WebP, AVIF, or JPEG XL. Animated WebP/AVIF/JPEG XL are not supported.
 
 ## Next
 

@@ -26,6 +26,10 @@ See the [filters catalog](./filters) for the full list.
 
 Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate`) — see the [filters guide](./filters#pixelart-package).
 
+## Retro
+
+Opt-in [`ChromaFx.Retro`](./packages) (`WebSafeQuantize`, `CgaQuantize`, `EgaQuantize`, `VgaQuantize`) — see the [filters guide](./filters#retro-package).
+
 ## Terminal art
 
 `ChromaFx.Processing.Terminal` renders images for TUIs (album-art panels, previews). The meta-package injects this namespace automatically.
