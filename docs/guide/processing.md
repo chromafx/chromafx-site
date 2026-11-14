@@ -51,7 +51,7 @@ var ansi = cover.ToAnsiArt(new AnsiArtOptions
 | Option | Notes |
 |--------|--------|
 | `SizeMode` | `Fit` (default) or `Exact` letterbox (requires both maxima) |
-| `CharacterAspect` | `0` = auto — ASCII / full-block `█` → `2`, half-block `▀` → `1` |
+| `CharacterAspect` | `0` = auto → `2` (typical monospace cell height/width); half-block `▀` still uses `2` |
 | `UseHalfBlocks` | ANSI only; `▀` with FG+BG (default) or `█` with FG |
 | `ColorMode` | ANSI `TrueColor` or `Ansi256` |
 | `Invert` / `Characters` | ASCII ramp; Invert also picks black bg when `BackgroundColor` is unset |
@@ -68,9 +68,22 @@ Console.Write(KittyGraphics.FromPng(png, columns: 24, rows: 12));
 
 Use `TerminalImageCapabilities.Detect()` to choose a protocol.
 
+## HTML art
+
+`ChromaFx.Processing.HtmlArt` emits the same half-block / full-block grid as ANSI art, but as fixed-width colored HTML (`<pre>` + merged `<span>` CSS colors). Also injected by the meta-package.
+
+```csharp
+var html = image.ToHtmlArt(new HtmlArtOptions
+{
+    MaxWidth = 48,
+    MaxHeight = 24,
+    SizeMode = TerminalArtSizeMode.Exact,
+});
+```
+
 ```bash
 # from the library repo (github.com/chromafx/chromafx)
-dotnet run --project samples/TerminalArt
+dotnet run --project samples/TextArt
 ```
 
 ## Performance notes

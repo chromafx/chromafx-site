@@ -24,3 +24,7 @@ docs/.vitepress/cache
 *.njsproj
 *.sln
 *.sw?
+
+# Local agent/editor rules (not tracked)
+.cursor/
+.devin/

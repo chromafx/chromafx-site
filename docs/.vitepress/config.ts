@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'ChromaFx',
   description:
-    'Pure managed .NET image processing — BMP, PNG, JPEG, GIF. No native codec DLLs.',
+    'Pure managed .NET image processing — BMP, PNG, JPEG, GIF, TGA, TIFF, ICO. No native codec DLLs.',
   lang: 'en-US',
   cleanUrls: true,
   lastUpdated: true,
@@ -27,7 +27,7 @@ export default defineConfig({
       {
         property: 'og:description',
         content:
-          'Pure managed .NET image processing — BMP, PNG, JPEG, GIF. No native codec DLLs.',
+          'Pure managed .NET image processing — BMP, PNG, JPEG, GIF, TGA, TIFF, ICO. No native codec DLLs.',
       },
     ],
     ['meta', { property: 'og:image', content: 'https://chromafx.net/og.png' }],
@@ -62,6 +62,7 @@ export default defineConfig({
             { text: 'Packages', link: '/guide/packages' },
             { text: 'Processing', link: '/guide/processing' },
             { text: 'Filters', link: '/guide/filters' },
+            { text: 'Filter gallery', link: '/guide/gallery' },
             { text: 'Formats & encoders', link: '/guide/formats' },
             { text: 'Migration', link: '/guide/migration' },
           ],

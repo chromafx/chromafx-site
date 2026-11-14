@@ -2,8 +2,8 @@
 
 Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, **TIFF** (first page), and **ICO**.
 
-::: tip Next tag
-NuGet **0.6.2** has TGA, TIFF, and the native still codecs. ICO and EXIF orientation are on master and ship on the next tag.
+::: tip 0.6.3
+Managed **ICO**, EXIF/TIFF orientation bake-in on JPEG/PNG/TIFF/WebP, plus the TGA/TIFF and native still codecs from 0.6.2.
 :::
 
 ## Loading

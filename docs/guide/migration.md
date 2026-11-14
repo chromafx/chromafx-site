@@ -15,6 +15,7 @@ ChromaFx removed several Structure.Sketching-era APIs. Prefer `Mutate` / `Clone`
 | `IFormat` | `IImageFormat` |
 | `FileFormats` enum, including `WebP` / `Avif` / `JpegXl` | `ImageFormatKey`. Managed ids stay on `FileFormats`. Native ids are `NativeFormats` |
 | Public format types as the only API | Prefer `ImageFormats` / typed encoders (`BmpFormat` etc. remain public for advanced use) |
+| `Temperature` | `KelvinTint` (same Helland math; illuminant tint, not white balance). Pair with `Tint` for green↔magenta. Use `WhiteBalance` / `AutoWhiteBalance` for photographic correction. |
 
 ```csharp
 // Before

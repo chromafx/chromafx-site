@@ -1,6 +1,6 @@
 # Packages
 
-Current NuGet line is **0.6.2** (published from version tags only). SemVer 0.x may still change before 1.0.
+Current NuGet line is **0.6.3** (published from version tags only). SemVer 0.x may still change before 1.0.
 
 | Package | Role | NuGet |
 |---------|------|-------|

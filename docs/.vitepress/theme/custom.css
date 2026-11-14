@@ -271,3 +271,27 @@ body {
     max-width: 22ch;
   }
 }
+
+/* Filter gallery */
+.filter-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 1rem 0.85rem;
+  margin: 1rem 0 2rem;
+}
+.filter-gallery figure {
+  margin: 0;
+}
+.filter-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  background: var(--cf-surface);
+}
+.filter-gallery figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--cf-muted);
+  overflow-wrap: anywhere;
+}

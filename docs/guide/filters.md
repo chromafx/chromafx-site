@@ -8,7 +8,7 @@ On `IImageProcessingContext`:
 
 `Apply`, `Resize`, `Rotate`, `Crop`, `Flip`, `Invert`, `Brightness`, `Contrast`, `Gamma`, `Greyscale`, `GaussianBlur`, `Sharpen`, `Threshold`, `DrawRectangle`, `DrawEllipse`
 
-Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `Noise`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`
+Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `Noise`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`, `AdaptiveEqualize`, `Logarithm`, `Alpha`, `KelvinTint`, `Tint`, `WhiteBalance`, `AutoWhiteBalance`, `Kodachrome`, `Polaroid`, `Lomograph`, `Median`, `Kuwahara`, `SnnBlur`, `Unsharp`, `Posterize`, `Solarize`, `Jitter`, `Glow`, `Vignette`, `Blend`, `AdaptiveThreshold`, `Canny`, `DrawLine`, `Skew`, `Translate`, `ResizeCanvas`
 
 ```csharp
 image.Mutate(ctx => ctx
@@ -25,7 +25,7 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterL
 |----------|---------|
 | Arithmetic | `Add`, `Subtract`, `Multiplication`, `Division`, `Modulo`, `And`, `Or`, `XOr` |
 | Binary | `Threshold`, `AdaptiveThreshold`, `NonMaximalSuppression` |
-| Color | `Brightness`, `Contrast`, `Gamma`, `Hue`, `Saturation`, `Temperature`, `Alpha`, `BlackWhite`, `Greyscale601`, `Greyscale709`, channel filters, `SepiaTone`, `Kodachrome`, `Lomograph`, `Polaroid` |
+| Color | `Brightness`, `Contrast`, `Gamma`, `Hue`, `Saturation`, `KelvinTint` (Helland illuminant tint; not WB), `Tint` (green↔magenta), `WhiteBalance`, `AutoWhiteBalance` (GrayWorld / WhitePatch), `Alpha`, `BlackWhite`, `Greyscale601`, `Greyscale709`, channel filters, `SepiaTone`, `Kodachrome`, `Lomograph`, `Polaroid` |
 | Convolution | `BoxBlur`, `Sharpen`, `SharpenLess`, `Emboss`, `SobelEmboss`, `Prewitt`, `Scharr`, `Kirsch`, `Kayyali`, `Robinson`, `RobertsCross`, `LaplaceEdgeDetection`, `LaplacianOfGaussianEdgeDetector` |
 | Drawing | `Line`, `Rectangle`, `Ellipse` |
 | Effects | `Invert`, `Posterize`, `Solarize`, `Pixellate`, `Noise`, `Jitter`, `Replace`, `SinWave`, `Pointillism`, `Turbulence` |
@@ -39,7 +39,7 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `FilterL
 
 Drawing via fluent API today: `DrawRectangle` / `DrawEllipse`. Use `Apply(new Line(...))` for lines.
 
-Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/ChromaFx.Processing/Filters) in the library repo.
+Full sources: [`Filters/`](https://github.com/chromafx/chromafx/tree/master/src/ChromaFx.Processing/Filters) in the library repo. Visual samples: [filter gallery](./gallery).
 
 ## PixelArt package
 

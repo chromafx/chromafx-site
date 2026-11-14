@@ -3,7 +3,7 @@
 Install the meta-package and start with `Image.Load` / `Mutate` / `Clone` / `Save`.
 
 ::: tip 0.x line
-Current line is **0.6.2** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+Current line is **0.6.3** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
 :::
 
 ## Install
@@ -46,7 +46,7 @@ Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you 
 ## Next
 
 - [Packages](./packages) — NuGet layout
-- [Processing](./processing) — Mutate, Clone, Terminal
+- [Processing](./processing) — Mutate, Clone, Terminal / HTML art
 - [Filters](./filters) — fluent helpers and catalog
 - [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP/TGA/TIFF/ICO and plugins
 - [Migration](./migration) — Structure.Sketching-era API removals
