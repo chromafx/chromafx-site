@@ -9,7 +9,7 @@ Current NuGet line is **0.6.3** (published from version tags only). SemVer 0.x m
 | **ChromaFx.IO** | Decode/encode, Load/Save, format registry | [ChromaFx.IO](https://www.nuget.org/packages/ChromaFx.IO/) |
 | **ChromaFx.Processing** | Filters and Mutate/Clone | [ChromaFx.Processing](https://www.nuget.org/packages/ChromaFx.Processing/) |
 | **ChromaFx.PixelArt** | Opt-in Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI and `RotateSprite` / `CleanEdgeRotate` (not in the meta-package) | [ChromaFx.PixelArt](https://www.nuget.org/packages/ChromaFx.PixelArt/) |
-| **ChromaFx.Retro** | Opt-in retro palettes (`WebSafeQuantize`, `CgaQuantize`, `EgaQuantize`, `VgaQuantize`; more planned; not in the meta-package) | [ChromaFx.Retro](https://www.nuget.org/packages/ChromaFx.Retro/) |
+| **ChromaFx.Retro** | Opt-in retro palettes + Millennium / classic FX / plasma / fire (not in the meta-package) | [ChromaFx.Retro](https://www.nuget.org/packages/ChromaFx.Retro/) |
 | **ChromaFx.Native** | Opt-in still WebP, AVIF, and JPEG XL (not in the meta-package; no animation) | [ChromaFx.Native](https://www.nuget.org/packages/ChromaFx.Native/) |
 
 All packages target **net10.0** and ship under Apache 2.0.
