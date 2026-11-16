@@ -63,7 +63,7 @@ image.Save("lossless.jxl", new JxlEncoder { Lossless = true });
 var still = Image.Load("photo.avif");
 ```
 
-`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `NativeFormats.WebP` / `Avif` / `JpegXl`. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, osx-x64, win-x64, and win-arm64.
+`WebPEncoder.Quality` defaults to 75 and is ignored when `Lossless` is set. `AvifEncoder.Quality` defaults to 60. `AvifEncoder.Lossless` writes full-range 4:4:4 with an identity matrix; lossy AVIF is 4:2:0. `JxlEncoder.Quality` defaults to 75. Lossy distance is `(100 - quality) / 10`. `Lossless`, and quality 100, write distance 0. A later `ImageFormats.Register` wins for `Save` by extension and for `NativeFormats.WebP` / `Avif` / `JpegXl`. Native binaries ship inside the package for linux-x64, linux-arm64, osx-arm64, win-x64, and win-arm64.
 
 ## Plugins
 
