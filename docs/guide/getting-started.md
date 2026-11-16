@@ -3,7 +3,7 @@
 Install the meta-package and start with `Image.Load` / `Mutate` / `Clone` / `Save`.
 
 ::: tip 0.x line
-Current line is **0.6.3** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+Current line is **0.6.4** on NuGet (tag-only releases). API may still change before 1.0. See the [library changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
 :::
 
 ## Install

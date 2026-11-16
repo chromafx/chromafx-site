@@ -2,8 +2,8 @@
 
 Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, **TIFF** (first page), and **ICO**.
 
-::: tip 0.6.3
-Managed **ICO**, EXIF/TIFF orientation bake-in on JPEG/PNG/TIFF/WebP, plus the TGA/TIFF and native still codecs from 0.6.2.
+::: tip 0.6.4
+Multi-size **ICO** encode, TIFF **Deflate** encode option, `ManagedFormats` rename, and native **win-arm64** RIDs — on top of ICO/EXIF from 0.6.3.
 :::
 
 ## Loading
