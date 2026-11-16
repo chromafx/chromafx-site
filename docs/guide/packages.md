@@ -14,6 +14,8 @@ Current NuGet line is **0.6.4** (published from version tags only). SemVer 0.x m
 
 All packages target **net10.0** and ship under Apache 2.0.
 
+[ChromaLab](https://github.com/chromafx/chromalab) is a separate Avalonia desktop showcase — not a NuGet package. Download builds from [Releases](https://github.com/chromafx/chromalab/releases).
+
 ```bash
 dotnet add package ChromaFx
 

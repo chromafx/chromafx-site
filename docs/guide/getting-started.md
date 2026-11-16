@@ -51,3 +51,4 @@ Prefer `ChromaFx` for new apps. Pull Core / IO / Processing separately when you 
 - [Filters](./filters) — fluent helpers and catalog
 - [Formats & encoders](./formats) — JPEG/PNG/GIF/BMP/TGA/TIFF/ICO and plugins
 - [Migration](./migration) — Structure.Sketching-era API removals
+- [ChromaLab](https://github.com/chromafx/chromalab/releases) — desktop showcase (download zips; not a NuGet package)
