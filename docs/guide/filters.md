@@ -2,13 +2,17 @@
 
 Most filters implement `IFilter` (`ChromaFx.Processing.Filters`) and run through `Mutate` / `Clone`. Prefer fluent helpers when they exist; otherwise `Apply(new SomeFilter(...))`. Resize kernels take `ResamplingFilter` (`…Filters.Resampling`).
 
+::: tip Unreleased
+`Curves(black?, mid?, white?)` — master RGB tone curve; `Perspective(horizontal?, vertical?)` — trapezoid warp — ship after **0.6.4**. See the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+:::
+
 ## Fluent helpers
 
 On `IImageProcessingContext`:
 
 `Apply`, `Resize`, `Rotate`, `Crop`, `Flip`, `Invert`, `Brightness`, `Contrast`, `Gamma`, `Greyscale`, `GaussianBlur`, `Sharpen`, `Threshold`, `DrawRectangle`, `DrawEllipse`
 
-Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `MorphOpen`, `MorphClose`, `Noise`, `FilmGrain`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`, `AdaptiveEqualize`, `Logarithm`, `Levels`, `Alpha`, `KelvinTint`, `Tint`, `WhiteBalance`, `AutoWhiteBalance`, `Kodachrome`, `Polaroid`, `Lomograph`, `Median`, `Kuwahara`, `SnnBlur`, `Unsharp`, `Posterize`, `Solarize`, `Jitter`, `Glow`, `Vignette`, `Blend` (optional `BlendMode`), `AdaptiveThreshold`, `Canny`, `EdgeDetect`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint`, `Quantize`, `DrawLine`, `Skew`, `Translate`, `ResizeCanvas`
+Extensions: `Grayscale`, `BoxBlur`, `Saturation`, `Hue`, `Dilate`, `Erode`, `MorphOpen`, `MorphClose`, `Noise`, `FilmGrain`, `Pixellate`, `Sepia`, `Emboss`, `SobelEmboss`, `StretchContrast`, `Equalize`, `AdaptiveEqualize`, `Logarithm`, `Levels`, `Curves`, `Alpha`, `KelvinTint`, `Tint`, `WhiteBalance`, `AutoWhiteBalance`, `Kodachrome`, `Polaroid`, `Lomograph`, `Median`, `Kuwahara`, `SnnBlur`, `Unsharp`, `Posterize`, `Solarize`, `Jitter`, `Glow`, `Vignette`, `Blend` (optional `BlendMode`), `AdaptiveThreshold`, `Canny`, `EdgeDetect`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint`, `Quantize`, `DrawLine`, `Skew`, `Perspective`, `Translate`, `ResizeCanvas`
 
 ```csharp
 image.Mutate(ctx => ctx
@@ -30,11 +34,11 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `Resampl
 | Drawing | `Line`, `Rectangle`, `Ellipse` |
 | Effects | `Invert`, `Posterize`, `Solarize`, `Pixellate`, `Noise`, `FilmGrain`, `Jitter`, `Replace`, `SinWave`, `Pointillism`, `Turbulence`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint` |
 | Morphology | `Dilate`, `Constrict` (fluent `Erode`), `MorphOpen`, `MorphClose` |
-| Normalization | `Equalize`, `AdaptiveEqualize`, `StretchContrast`, `Logarithm`, `Gamma`, `Levels` |
+| Normalization | `Equalize`, `AdaptiveEqualize`, `StretchContrast`, `Logarithm`, `Gamma`, `Levels`, `Curves` |
 | Overlays | `Blend` (+ `BlendMode`), `Glow`, `Vignette` |
 | Pipelines | `GaussianBlur`, `CannyEdgeDetection`, `EdgeDetect`, `BumpMap`, `NormalMap`, `Polaroid`, `Lomograph` |
 | Quantize | `Quantize` (+ `DitherMethod`: None / Bayer4x4 / Bayer8x8 / FloydSteinberg) |
-| Resampling | `Resize`, `ResizeCanvas`, `Crop`, `Flip`, `Rotate`, `Scale`, `Skew`, `Translate`, `AffineTransformation` |
+| Resampling | `Resize`, `ResizeCanvas`, `Crop`, `Flip`, `Rotate`, `Scale`, `Skew`, `Perspective`, `Translate`, `AffineTransformation` |
 | Sharpening | `Unsharp` |
 | Smoothing | `Median`, `Kuwahara`, `SNNBlur` |
 

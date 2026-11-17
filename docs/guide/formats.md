@@ -43,7 +43,11 @@ GIF still/animation encode builds its palette with the shared Core `Octree` (sam
 
 `TgaEncoder` writes uncompressed 32-bit top-left TGA (`.tga`, `.targa`). Decode reads raw and RLE images: 8-bit indexed or greyscale, and 15/16/24/32-bit truecolor, including a bottom-left origin. `TiffEncoder` writes little-endian 8-bit RGBA (`.tif`, `.tiff`); set `Compression` to `TiffCompression.None` (default) or `Deflate`. Decode reads the first IFD only: bilevel, greyscale, palette, or RGB, with optional alpha on greyscale and RGB, 1/4/8 bits per sample, chunky strips or tiles, uncompressed, PackBits, LZW, or Deflate (horizontal differencing on LZW and Deflate). BigTIFF, JPEG-in-TIFF, CMYK, 16-bit, float, and planar images are rejected. `IcoEncoder` writes PNG image(s), each at most 256×256 (`.ico`); use `Encode(stream, images)` for multi-size icons. Decode uses the largest directory entry: a PNG payload, or an uncompressed 1/4/8/24/32-bit BMP plus its AND mask.
 
-JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 into the pixels, so a phone photo loads upright. The encoder does not write that tag back. AVIF and JPEG XL are unchanged.
+JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 into the pixels, so a phone photo loads upright.
+
+::: tip Unreleased
+`Image.Metadata` holds optional EXIF (raw TIFF IFD) and XMP. JPEG and PNG decode populate it; encode writes it back with orientation forced to **1** (pixels stay upright). Assign `image.Metadata.Exif` / `Xmp` before save to inject. TIFF/WebP/AVIF/JPEG XL do not round-trip this bag yet.
+:::
 
 ## WebP, AVIF, and JPEG XL
 

@@ -25,7 +25,7 @@ See the [filters catalog](./filters) for the full list.
 ## Image similarity
 
 ::: tip Unreleased
-`ImageSimilarity` lands after **0.6.4** (see the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md) Unreleased). Same-size RGB metrics; alpha ignored; not an `IFilter`.
+`ImageSimilarity` and `ColorDifference` land after **0.6.4** (see the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md) Unreleased). Same-size metrics; alpha ignored; not an `IFilter`.
 :::
 
 ```csharp
@@ -33,6 +33,9 @@ var mse = ImageSimilarity.Mse(a, b);
 var psnr = ImageSimilarity.Psnr(a, b);   // ∞ when identical
 var ssim = ImageSimilarity.Ssim(a, b);
 var diff = ImageSimilarity.CreateDiffImage(a, b);
+
+var de = ColorDifference.Cie76(colorA, colorB);
+var meanDe = ColorDifference.MeanCie76(a, b);
 ```
 
 Also: `Rmse`, `Mae`, `CountDifferingPixels`.
@@ -107,4 +110,4 @@ dotnet run --project samples/TextArt
 
 ## Performance notes
 
-Hot paths lean on `Span<T>`, `ArrayPool`, and SIMD where it pays off. Native codecs can still win raw pixel throughput; ChromaFx prioritizes **deployability** and allocation-conscious decode → filter → encode loops. Measure with `tests/ChromaFx.Benchmarks` in the [library repo](https://github.com/chromafx/chromafx).
+Hot paths lean on `Span<T>`, `ArrayPool`, and SIMD (`Vector` / AVX2 / SSE2 / AdvSimd) where it pays off — color-matrix rows, IQ metrics, byte abs-diff, PNG predictors, JPEG IDCT/YCbCr. Native codecs can still win raw pixel throughput; ChromaFx prioritizes **deployability** and allocation-conscious decode → filter → encode loops. Measure with `tests/ChromaFx.Benchmarks` in the [library repo](https://github.com/chromafx/chromafx).
