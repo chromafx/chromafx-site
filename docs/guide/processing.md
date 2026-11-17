@@ -22,6 +22,21 @@ image.Mutate(ctx => ctx.Apply(myFilter));
 
 See the [filters catalog](./filters) for the full list.
 
+## Image similarity
+
+::: tip Unreleased
+`ImageSimilarity` lands after **0.6.4** (see the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md) Unreleased). Same-size RGB metrics; alpha ignored; not an `IFilter`.
+:::
+
+```csharp
+var mse = ImageSimilarity.Mse(a, b);
+var psnr = ImageSimilarity.Psnr(a, b);   // ∞ when identical
+var ssim = ImageSimilarity.Ssim(a, b);
+var diff = ImageSimilarity.CreateDiffImage(a, b);
+```
+
+Also: `Rmse`, `Mae`, `CountDifferingPixels`.
+
 ## Pixel art
 
 Opt-in [`ChromaFx.PixelArt`](./packages) (Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI / `RotateSprite` / `CleanEdgeRotate`) — see the [filters guide](./filters#pixelart-package).

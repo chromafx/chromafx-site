@@ -22,7 +22,7 @@ features:
   - title: Explicit pipelines
     details: Mutate and Clone keep side effects obvious. Fluent filters with an Apply escape hatch when you need it.
   - title: Opt-in PixelArt & Retro
-    details: PixelArt (Scale2x–Hq4x, CleanEdge, Eagle, SaI, RotateSprite) and Retro palettes (web-safe, CGA, EGA, VGA DAC) ship as separate packs — not pulled in by the meta-package.
+    details: PixelArt (Scale2x–Hq4x, CleanEdge, Eagle, SaI, RotateSprite) and Retro (palettes + Millennium / classic FX / plasma / fire) ship as separate packs — not pulled in by the meta-package.
   - title: Opt-in Native codecs
     details: ChromaFx.Native adds still WebP, AVIF, and JPEG XL. Animation stays on GIF, and the meta-package stays free of native binaries.
 ---
