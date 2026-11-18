@@ -16,7 +16,7 @@ See the [filters catalog](./filters) for APIs.
 
 <figure><img src="/gallery/filters/BlackWhite.png" alt="BlackWhite" loading="lazy" /><figcaption><code>BlackWhite</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/BlueFilter.png" alt="BlueFilter" loading="lazy" /><figcaption><code>BlueFilter</code></figcaption></figure>
+<figure><img src="/gallery/filters/BlueChannel.png" alt="BlueChannel" loading="lazy" /><figcaption><code>BlueChannel</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Brightness--50.png" alt="Brightness--50" loading="lazy" /><figcaption><code>Brightness--50</code></figcaption></figure>
 
@@ -34,7 +34,7 @@ See the [filters catalog](./filters) for APIs.
 
 <figure><img src="/gallery/filters/Gamma.png" alt="Gamma" loading="lazy" /><figcaption><code>Gamma</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/GreenFilter.png" alt="GreenFilter" loading="lazy" /><figcaption><code>GreenFilter</code></figcaption></figure>
+<figure><img src="/gallery/filters/GreenChannel.png" alt="GreenChannel" loading="lazy" /><figcaption><code>GreenChannel</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Greyscale601.png" alt="Greyscale601" loading="lazy" /><figcaption><code>Greyscale601</code></figcaption></figure>
 
@@ -70,23 +70,23 @@ See the [filters catalog](./filters) for APIs.
 
 <figure><img src="/gallery/filters/Lomograph.png" alt="Lomograph" loading="lazy" /><figcaption><code>Lomograph</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/LomographColorMatrix.png" alt="LomographColorMatrix" loading="lazy" /><figcaption><code>LomographColorMatrix</code></figcaption></figure>
+<figure><img src="/gallery/filters/LomographMatrix.png" alt="LomographMatrix" loading="lazy" /><figcaption><code>LomographMatrix</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/MatrixMultiplication.png" alt="MatrixMultiplication" loading="lazy" /><figcaption><code>MatrixMultiplication</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/PolaroidColorMatrix.png" alt="PolaroidColorMatrix" loading="lazy" /><figcaption><code>PolaroidColorMatrix</code></figcaption></figure>
+<figure><img src="/gallery/filters/PolaroidMatrix.png" alt="PolaroidMatrix" loading="lazy" /><figcaption><code>PolaroidMatrix</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Protanomaly.png" alt="Protanomaly" loading="lazy" /><figcaption><code>Protanomaly</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Protanopia.png" alt="Protanopia" loading="lazy" /><figcaption><code>Protanopia</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/RedFilter.png" alt="RedFilter" loading="lazy" /><figcaption><code>RedFilter</code></figcaption></figure>
+<figure><img src="/gallery/filters/RedChannel.png" alt="RedChannel" loading="lazy" /><figcaption><code>RedChannel</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Saturation--50.png" alt="Saturation--50" loading="lazy" /><figcaption><code>Saturation--50</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Saturation-50.png" alt="Saturation-50" loading="lazy" /><figcaption><code>Saturation-50</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/Sepiatone.png" alt="Sepiatone" loading="lazy" /><figcaption><code>Sepiatone</code></figcaption></figure>
+<figure><img src="/gallery/filters/Sepia.png" alt="Sepia" loading="lazy" /><figcaption><code>Sepia</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Tint-Green.png" alt="Tint-Green" loading="lazy" /><figcaption><code>Tint-Green</code></figcaption></figure>
 
@@ -178,7 +178,7 @@ See the [filters catalog](./filters) for APIs.
 
 <div class="filter-gallery">
 
-<figure><img src="/gallery/filters/Constrict.png" alt="Constrict" loading="lazy" /><figcaption><code>Constrict</code></figcaption></figure>
+<figure><img src="/gallery/filters/Erode.png" alt="Erode" loading="lazy" /><figcaption><code>Erode</code></figcaption></figure>
 
 <figure><img src="/gallery/filters/Dilate.png" alt="Dilate" loading="lazy" /><figcaption><code>Dilate</code></figcaption></figure>
 
@@ -234,7 +234,7 @@ See the [filters catalog](./filters) for APIs.
 
 <figure><img src="/gallery/filters/Subtract.png" alt="Subtract" loading="lazy" /><figcaption><code>Subtract</code></figcaption></figure>
 
-<figure><img src="/gallery/filters/XOr.png" alt="XOr" loading="lazy" /><figcaption><code>XOr</code></figcaption></figure>
+<figure><img src="/gallery/filters/Xor.png" alt="Xor" loading="lazy" /><figcaption><code>Xor</code></figcaption></figure>
 
 </div>
 

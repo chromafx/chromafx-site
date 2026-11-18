@@ -27,13 +27,13 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `Resampl
 
 | Category | Filters |
 |----------|---------|
-| Arithmetic | `Add`, `Subtract`, `Multiplication`, `Division`, `Modulo`, `And`, `Or`, `XOr` |
+| Arithmetic | `Add`, `Subtract`, `Multiplication`, `Division`, `Modulo`, `And`, `Or`, `Xor` |
 | Binary | `Threshold`, `AdaptiveThreshold`, `NonMaximalSuppression` |
-| Color | `Brightness`, `Contrast`, `Gamma`, `Hue`, `Saturation`, `KelvinTint` (Helland illuminant tint; not WB), `Tint` (green↔magenta), `WhiteBalance`, `AutoWhiteBalance` (GrayWorld / WhitePatch), `Alpha`, `BlackWhite`, `Greyscale601`, `Greyscale709`, channel filters, `SepiaTone`, `Kodachrome`, `Lomograph`, `Polaroid` |
+| Color | `Brightness`, `Contrast`, `Gamma`, `Hue`, `Saturation`, `KelvinTint` (Helland illuminant tint; not WB), `Tint` (green↔magenta), `WhiteBalance`, `AutoWhiteBalance` (GrayWorld / WhitePatch), `Alpha`, `BlackWhite`, `Greyscale601`, `Greyscale709`, channel filters (`RedChannel` / `GreenChannel` / `BlueChannel`), `Sepia`, `Kodachrome`, `Lomograph` / `LomographMatrix`, `Polaroid` / `PolaroidMatrix` |
 | Convolution | `BoxBlur`, `Sharpen`, `SharpenLess`, `Emboss`, `SobelEmboss`, `Prewitt`, `Scharr`, `Kirsch`, `Kayyali`, `Robinson`, `RobertsCross`, `LaplaceEdgeDetection`, `LaplacianOfGaussianEdgeDetector` |
 | Drawing | `Line`, `Rectangle`, `Ellipse` |
 | Effects | `Invert`, `Posterize`, `Solarize`, `Pixellate`, `Noise`, `FilmGrain`, `Jitter`, `Replace`, `SinWave`, `Pointillism`, `Turbulence`, `Duotone`, `Colorize`, `MotionBlur`, `ShadowsHighlights`, `OilPaint` |
-| Morphology | `Dilate`, `Constrict` (fluent `Erode`), `MorphOpen`, `MorphClose` |
+| Morphology | `Dilate`, `Erode`, `MorphOpen`, `MorphClose` |
 | Normalization | `Equalize`, `AdaptiveEqualize`, `StretchContrast`, `Logarithm`, `Gamma`, `Levels`, `Curves` |
 | Overlays | `Blend` (+ `BlendMode`), `Glow`, `Vignette` |
 | Pipelines | `GaussianBlur`, `CannyEdgeDetection`, `EdgeDetect`, `BumpMap`, `NormalMap`, `Polaroid`, `Lomograph` |
