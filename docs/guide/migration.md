@@ -23,6 +23,21 @@ ChromaFx removed several Structure.Sketching-era APIs. Prefer `Mutate` / `Clone`
 | Public format types as the only API | Prefer `ImageFormats` / typed encoders (`BmpFormat` etc. remain public for advanced use) |
 | `Temperature` | `KelvinTint` (same Helland math; illuminant tint, not white balance). Pair with `Tint` for green↔magenta. Use `WhiteBalance` / `AutoWhiteBalance` for photographic correction. |
 
+### 0.6.5 filter renames
+
+| Removed / old | Use instead |
+|---------------|-------------|
+| `Constrict` | `Erode` (fluent was already `Erode`) |
+| `Sepiatone` | `Sepia` |
+| `XOr` | `Xor` |
+| `RedFilter` / `GreenFilter` / `BlueFilter` | `RedChannel` / `GreenChannel` / `BlueChannel` |
+| `PolaroidColorMatrix` / `LomographColorMatrix` | `PolaroidMatrix` / `LomographMatrix` (pipelines stay `Polaroid` / `Lomograph`) |
+| `MatrixBaseClass` | `MatrixFilterBase` |
+| `AffineBaseClass` | `AffineTransformBase` |
+| `ConvolutionBaseClass` / `Convolution2DBaseClass` | `ConvolutionBase` / `Convolution2DBase` |
+| `ShapeBaseClass` | `ShapeFilterBase` |
+| `ProcessingPipelineBaseClass` | `ProcessingPipelineBase` |
+
 ```csharp
 // Before
 img.Apply<Invert>();

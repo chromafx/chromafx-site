@@ -2,8 +2,8 @@
 
 Most filters implement `IFilter` (`ChromaFx.Processing.Filters`) and run through `Mutate` / `Clone`. Prefer fluent helpers when they exist; otherwise `Apply(new SomeFilter(...))`. Resize kernels take `ResamplingFilter` (`…Filters.Resampling`).
 
-::: tip Unreleased
-`Curves(black?, mid?, white?)` — master RGB tone curve; `Perspective(horizontal?, vertical?)` — trapezoid warp — ship after **0.6.4**. See the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
+::: tip 0.6.5
+`Curves(black?, mid?, white?)` — master RGB tone curve; `Perspective(horizontal?, vertical?)` — trapezoid warp. See the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md).
 :::
 
 ## Fluent helpers
@@ -40,7 +40,7 @@ Base / helper types (`*FilterBase`, `ColorMatrix`, `ConvolutionFilter`, `Resampl
 | Quantize | `Quantize` (+ `DitherMethod`: None / Bayer4x4 / Bayer8x8 / FloydSteinberg) |
 | Resampling | `Resize`, `ResizeCanvas`, `Crop`, `Flip`, `Rotate`, `Scale`, `Skew`, `Perspective`, `Translate`, `AffineTransformation` |
 | Sharpening | `Unsharp` |
-| Smoothing | `Median`, `Kuwahara`, `SNNBlur` |
+| Smoothing | `Median`, `Kuwahara`, `SnnBlur` |
 
 Drawing via fluent API today: `DrawRectangle` / `DrawEllipse` / `DrawLine` / `DrawPolygon` / `DrawPolyline` / `FloodFill`.
 

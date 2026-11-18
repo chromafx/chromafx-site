@@ -1,13 +1,13 @@
 # Packages
 
-Current NuGet line is **0.6.4** (published from version tags only). SemVer 0.x may still change before 1.0.
+Current NuGet line is **0.6.5** (published from version tags only). SemVer 0.x may still change before 1.0.
 
 | Package | Role | NuGet |
 |---------|------|-------|
 | **ChromaFx** | Meta-package (`Core` + `IO` + `Processing`) | [ChromaFx](https://www.nuget.org/packages/ChromaFx/) |
-| **ChromaFx.Core** | Image, color, animation, exceptions | [ChromaFx.Core](https://www.nuget.org/packages/ChromaFx.Core/) |
-| **ChromaFx.IO** | Decode/encode, Load/Save, format registry | [ChromaFx.IO](https://www.nuget.org/packages/ChromaFx.IO/) |
-| **ChromaFx.Processing** | Filters and Mutate/Clone | [ChromaFx.Processing](https://www.nuget.org/packages/ChromaFx.Processing/) |
+| **ChromaFx.Core** | Image, color, animation, exceptions; `ImageSimilarity` / `ColorDifference` / `Image.Metadata` | [ChromaFx.Core](https://www.nuget.org/packages/ChromaFx.Core/) |
+| **ChromaFx.IO** | Decode/encode, Load/Save, format registry; JPEG/PNG EXIF·XMP preserve | [ChromaFx.IO](https://www.nuget.org/packages/ChromaFx.IO/) |
+| **ChromaFx.Processing** | Filters and Mutate/Clone (`Curves`, `Perspective`, …) | [ChromaFx.Processing](https://www.nuget.org/packages/ChromaFx.Processing/) |
 | **ChromaFx.PixelArt** | Opt-in Scale2x / Scale3x / Hq2x–4x / CleanEdge / Eagle / SaI and `RotateSprite` / `CleanEdgeRotate` (not in the meta-package) | [ChromaFx.PixelArt](https://www.nuget.org/packages/ChromaFx.PixelArt/) |
 | **ChromaFx.Retro** | Opt-in retro palettes + Millennium / classic FX / plasma / fire (not in the meta-package) | [ChromaFx.Retro](https://www.nuget.org/packages/ChromaFx.Retro/) |
 | **ChromaFx.Native** | Opt-in still WebP, AVIF, and JPEG XL (not in the meta-package; no animation) | [ChromaFx.Native](https://www.nuget.org/packages/ChromaFx.Native/) |

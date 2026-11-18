@@ -24,8 +24,8 @@ See the [filters catalog](./filters) for the full list.
 
 ## Image similarity
 
-::: tip Unreleased
-`ImageSimilarity` and `ColorDifference` land after **0.6.4** (see the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md) Unreleased). Same-size metrics; alpha ignored; not an `IFilter`.
+::: tip 0.6.5
+`ImageSimilarity` and `ColorDifference` (see the library [changelog](https://github.com/chromafx/chromafx/blob/master/CHANGELOG.md)). Same-size metrics; alpha ignored; not an `IFilter`.
 :::
 
 ```csharp

@@ -45,7 +45,7 @@ GIF still/animation encode builds its palette with the shared Core `Octree` (sam
 
 JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 into the pixels, so a phone photo loads upright.
 
-::: tip Unreleased
+::: tip 0.6.5
 `Image.Metadata` holds optional EXIF (raw TIFF IFD) and XMP. JPEG and PNG decode populate it; encode writes it back with orientation forced to **1** (pixels stay upright). Assign `image.Metadata.Exif` / `Xmp` before save to inject. TIFF/WebP/AVIF/JPEG XL do not round-trip this bag yet.
 :::
 
