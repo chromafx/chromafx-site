@@ -394,13 +394,25 @@ See the [filters catalog](./filters) for APIs.
 
 <div class="filter-gallery">
 
-<figure><img src="/gallery/filters/CgaQuantize.png" alt="CgaQuantize" loading="lazy" /><figcaption><code>CgaQuantize</code></figcaption></figure>
+<figure><img src="/gallery/filters/CgaQuantize.png" alt="CgaQuantize" loading="lazy" /><figcaption><code>CgaQuantize</code> (Palette1High)</figcaption></figure>
 
-<figure><img src="/gallery/filters/CgaQuantize-Standard16.png" alt="CgaQuantize-Standard16" loading="lazy" /><figcaption><code>CgaQuantize-Standard16</code></figcaption></figure>
+<figure><img src="/gallery/filters/CgaQuantize-Palette1Low.png" alt="CgaQuantize-Palette1Low" loading="lazy" /><figcaption><code>CgaQuantize</code> Palette1Low</figcaption></figure>
 
-<figure><img src="/gallery/filters/EgaQuantize.png" alt="EgaQuantize" loading="lazy" /><figcaption><code>EgaQuantize</code></figcaption></figure>
+<figure><img src="/gallery/filters/CgaQuantize-Palette2High.png" alt="CgaQuantize-Palette2High" loading="lazy" /><figcaption><code>CgaQuantize</code> Palette2High</figcaption></figure>
 
-<figure><img src="/gallery/filters/VgaQuantize.png" alt="VgaQuantize" loading="lazy" /><figcaption><code>VgaQuantize</code></figcaption></figure>
+<figure><img src="/gallery/filters/CgaQuantize-Palette2Low.png" alt="CgaQuantize-Palette2Low" loading="lazy" /><figcaption><code>CgaQuantize</code> Palette2Low</figcaption></figure>
+
+<figure><img src="/gallery/filters/CgaQuantize-Standard16.png" alt="CgaQuantize-Standard16" loading="lazy" /><figcaption><code>CgaQuantize</code> Standard16</figcaption></figure>
+
+<figure><img src="/gallery/filters/CgaQuantize-Monochrome2.png" alt="CgaQuantize-Monochrome2" loading="lazy" /><figcaption><code>CgaQuantize</code> Monochrome2</figcaption></figure>
+
+<figure><img src="/gallery/filters/EgaQuantize.png" alt="EgaQuantize" loading="lazy" /><figcaption><code>EgaQuantize</code> Full64</figcaption></figure>
+
+<figure><img src="/gallery/filters/EgaQuantize-Adaptive16.png" alt="EgaQuantize-Adaptive16" loading="lazy" /><figcaption><code>EgaQuantize</code> Adaptive16</figcaption></figure>
+
+<figure><img src="/gallery/filters/VgaQuantize.png" alt="VgaQuantize" loading="lazy" /><figcaption><code>VgaQuantize</code> DacLevels</figcaption></figure>
+
+<figure><img src="/gallery/filters/VgaQuantize-Adaptive256.png" alt="VgaQuantize-Adaptive256" loading="lazy" /><figcaption><code>VgaQuantize</code> Adaptive256</figcaption></figure>
 
 <figure><img src="/gallery/filters/WebSafeQuantize.png" alt="WebSafeQuantize" loading="lazy" /><figcaption><code>WebSafeQuantize</code></figcaption></figure>
 

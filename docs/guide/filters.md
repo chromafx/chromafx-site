@@ -74,8 +74,8 @@ Opt-in [`ChromaFx.Retro`](./packages) is **not** in the meta-package. After `dot
 |--------|----------------|
 | Netscape 6×6×6 | `WebSafeQuantize(dither?, strength?)` |
 | CGA Mode 4 / RGBI / mono | `CgaQuantize(mode, dither?, strength?)` |
-| EGA 64-color `00/55/AA/FF` approx | `EgaQuantize(dither?, strength?)` |
-| VGA 6-bit DAC levels | `VgaQuantize(dither?, strength?)` |
+| EGA 64-color `00/55/AA/FF` approx (or Adaptive16 = image-frequency 16 of 64) | `EgaQuantize(mode?, dither?, strength?)` |
+| VGA 6-bit DAC levels (or Adaptive256 = Mode 13h-style 256 of ~262 144) | `VgaQuantize(mode?, dither?, strength?)` |
 | Bad web scale (NN down→up) | `BadWebScale(factor?, webSafe?, dither?, strength?)` |
 | Soft bevel (lighten/darken edges) | `Bevel(depth?, style?, expandCanvas?, strength?)` |
 | Mode resolution snap | `RetroMode(width?, height?)` (default 320×200, nearest-neighbor) |
