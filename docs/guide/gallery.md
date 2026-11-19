@@ -392,7 +392,7 @@ See the [filters catalog](./filters) for APIs.
 
 ## Retro
 
-Canonical palette snaps on the RainbowMountains fixture (adaptive Mode-style picks lead; full CGA mode matrix stays in the [filters catalog](./filters)).
+Canonical palette snaps on a CC0 macaw portrait (adaptive Mode-style picks lead; full CGA mode matrix stays in the [filters catalog](./filters)).
 
 <div class="filter-gallery">
 
