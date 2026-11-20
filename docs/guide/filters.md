@@ -94,7 +94,7 @@ Opt-in [`ChromaFx.Retro`](./packages) is **not** in the meta-package. After `dot
 | Lightning overlay | `Lightning(seed?, strength?, bolts?)` |
 | Fractal noise overlay | `FractalNoise(strength?, frequency?, seed?, octaves?)` |
 | Plasma | `Plasma(strength?, scale?, time?)` |
-| Fire | `Fire(strength?, seed?, cooling?)` |
+| Fire | `Fire(strength?, seed?, cooling?, imageInfluence?)` — `imageInfluence` 0 = classic RNG sparks; 1 = luma-seeded heat |
 
 Alpha is preserved on palette snaps. Optional ordered dither: Core `OrderedDitherMethod.None` (default), `Bayer4x4`, `Bayer8x8`; `strength` ~0.3–0.6 is typical (Retro bias scale ~±127.5 at strength 1). Adaptive `Quantize` uses Processing `DitherMethod` (adds Floyd–Steinberg) with a milder Bayer scale (~±32). `JpegBlocks` is a fun NxN crush, not a DCT codec.
 
