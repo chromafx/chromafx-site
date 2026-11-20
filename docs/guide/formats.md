@@ -1,6 +1,6 @@
 # Formats & encoders
 
-Current NuGet line is **0.6.5** (published from version tags only). SemVer 0.x may still change before 1.0.
+Current NuGet line is **0.6.6** (published from version tags only). SemVer 0.x may still change before 1.0.
 
 Built-in managed codecs: **BMP**, **PNG**, **JPEG**, **GIF** (including animation), **TGA**, **TIFF** (first page), and **ICO**.
 
