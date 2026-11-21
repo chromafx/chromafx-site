@@ -53,7 +53,11 @@ JPEG, PNG, TIFF, and WebP decode read orientation tag 274 and bake values 1–8 
 
 ## WebP, AVIF, and JPEG XL
 
-Opt-in [`ChromaFx.Native`](./packages) registers still WebP, AVIF, and JPEG XL when the package is referenced. Their ids are `NativeFormats.WebP`, `Avif`, and `JpegXl` (`webp`, `avif`, `jxl`), not members of `ManagedFormats`. Animated WebP, AVIF, and JPEG XL throw `NotSupportedException` (use GIF for animation).
+Opt-in [`ChromaFx.Native`](./packages) registers WebP, AVIF, and JPEG XL when the package is referenced. Their ids are `NativeFormats.WebP`, `Avif`, and `JpegXl` (`webp`, `avif`, `jxl`), not members of `ManagedFormats`. Still decode/encode is on NuGet **0.6.6**.
+
+::: tip Unreleased
+Animated **decode** (`Animation.Load`; `Image.Load` → frame 0) is in the library tree and ships on the next Native cut. Animated **encode** is not supported yet (use GIF to write animations). On NuGet **0.6.6**, animated WebP/AVIF/JPEG XL still throw `NotSupportedException`.
+:::
 
 ```csharp
 using ChromaFx.Native;
@@ -77,12 +81,14 @@ Implement `IImageFormat` / `IAnimationFormat` and give it an `ImageFormatKey`. `
 
 ## Animation
 
-`Animation` supports per-frame delays (`GetFrameDelay` / `SetFrameDelay` / `FrameDelays`). `SetAllFrameDelays` / `Delay` set every frame.
+`Animation` supports per-frame delays (`GetFrameDelay` / `SetFrameDelay` / `FrameDelays`). `SetAllFrameDelays` / `Delay` set every frame. Delays are GIF centiseconds on the public API.
 
-`RepeatCount`: `0` = loop forever, `1` = play once, `N` = play N times (written as a NETSCAPE 2.0 block when not `1`).
+`RepeatCount`: `0` = loop forever, `1` = play once, `N` = play N times. GIF encode writes a NETSCAPE 2.0 block when not `1`.
 
 ```csharp
 var anim = Animation.Load("rings.gif");
 await anim.SaveAsync("out.gif");
-anim.Save("frame0.png"); // non-GIF extension → first frame as still
+anim.Save("frame0.png"); // non-animation extension → first frame as still
 ```
+
+With `ChromaFx.Native`, animated WebP / AVIF / JPEG XL also load through `Animation.Load` once the Unreleased native cut ships (see tip above). Until then, use GIF for animation IO on NuGet **0.6.6**.

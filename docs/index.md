@@ -24,5 +24,5 @@ features:
   - title: Opt-in PixelArt & Retro
     details: PixelArt (Scale2x–Hq4x, CleanEdge, Eagle, SaI, RotateSprite) and Retro (palettes + Millennium / classic FX / plasma / fire) ship as separate packs — not pulled in by the meta-package.
   - title: Opt-in Native codecs
-    details: ChromaFx.Native adds still WebP, AVIF, and JPEG XL. Animation stays on GIF, and the meta-package stays free of native binaries.
+    details: ChromaFx.Native adds still WebP, AVIF, and JPEG XL. Animated decode lands on the next Native cut; animation encode stays on GIF for now, and the meta-package stays free of native binaries.
 ---
